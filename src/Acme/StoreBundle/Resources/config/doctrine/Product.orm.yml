@@ -1,0 +1,31 @@
+# src/Acme/StoreBundle/Resources/config/doctrine/Product.orm.yml
+Acme\StoreBundle\Entity\Product:
+    type: entity
+    repositoryClass: Acme\StoreBundle\Repository\ProductRepository
+    table: product
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 100
+        price:
+            type: decimal
+            scale: 2
+        description:
+            type: text
+        created:
+            type: date       
+            
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: products
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+                
+    lifecycleCallbacks:
+        prePersist: [ setCreatedValue ]                

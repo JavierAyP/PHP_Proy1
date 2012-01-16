@@ -1,0 +1,6 @@
+# Acme/TaskBundle/Resources/config/config.yml
+
+twig:
+  form:
+    resources:
+      - 'AcmeTaskBundle:Form:fields.html.twig'

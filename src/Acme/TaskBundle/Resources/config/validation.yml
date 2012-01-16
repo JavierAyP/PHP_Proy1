@@ -1,0 +1,16 @@
+# Acme/TaskBundle/Resources/config/validation.yml
+
+Acme\TaskBundle\Entity\Task:
+  properties:
+    task:
+      - MinLength: { limit: 3, message: "La tarea debe tener al menos {{ limit }} caracteres." }
+      - NotBlank: ~
+    dueDate:
+      - NotBlank: ~
+      - Type: \DateTime
+      
+Acme\TaskBundle\Entity\Category:
+  properties:
+    name:
+      - NotBlank: ~
+  

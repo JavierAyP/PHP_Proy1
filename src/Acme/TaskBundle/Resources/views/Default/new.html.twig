@@ -1,0 +1,30 @@
+{# src/Acme/TaskBundle/Resources/views/Default/new.html.twig #}
+
+{% form_theme form 'AcmeTaskBundle:Form:fields.html.twig' %}
+
+<form action="{{ path('task_new') }}" method="post" {{ form_enctype(form) }}>
+{{ form_errors(form) }}
+
+<div>
+    {{ form_label(form.task, 'Descripción de la tarea:') }}
+    {{ form_errors(form.task) }}
+    {{ form_widget(form.task, { 'attr': {'class': 'task_field', 'size': '40'} }) }}
+</div>
+
+<div>
+    {{ form_label(form.dueDate, 'Fecha de vencimiento:') }}
+    {{ form_errors(form.dueDate) }}
+    {{ form_widget(form.dueDate) }}
+</div>
+
+<h3>Categor&iacute;a</h3>
+<div class="category">
+    {{ form_label(form.category, 'Categoría:') }}
+    {{ form_errors(form.category) }}
+    {{ form_widget(form.category) }}
+</div>
+
+{{ form_rest(form) }}
+
+    <input type="submit" />
+</form>

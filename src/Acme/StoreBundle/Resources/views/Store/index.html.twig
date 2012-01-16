@@ -1,0 +1,24 @@
+{# src/Acme/StoreBundle/Resources/views/Store/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block title %}Mis productos{% endblock %}
+
+{% block body %}
+  <table id='products' border='1'>
+    <tr><th>id</th><th>name</th><th>price</th><th>description</th><th>category</th></tr>
+    {% for producto in productos %}
+      <tr class="{{ cycle(['odd', 'even'], loop.index) }}">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.name }}</td>
+        <td>{{ producto.price }}</td>
+        <td>{{ producto.description }}</td>
+        <td>{# {{ producto.category }} #}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <ul>
+    <li><a href="{{ url('AcmeStoreBundle_ejemploDQL', {'precio': 49}) }}">Ejemplo DQL</a> (Doctrine Query Language): (precio > 49)</li>
+    <li><a href="{{ url('AcmeStoreBundle_ejemploDQB', {'precio': 30}) }}">Ejemplo DQB</a> (Doctrine Query Builder): (precio > 30)</li>
+    <li><a href="{{ url('AcmeStoreBundle_nombres') }}">Ejemplo m&eacute;todo del Repositorio</a> (Custom Repository Classes)</li>
+  </ul>
+{% endblock %}

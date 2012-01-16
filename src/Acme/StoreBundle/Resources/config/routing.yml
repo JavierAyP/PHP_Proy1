@@ -1,0 +1,39 @@
+# src/Acme/StoreBundle/Resources/config/routing.yml
+
+AcmeStoreBundle_index:
+  pattern: /
+  defaults: { _controller: AcmeStoreBundle:Store:index }
+  requirements:
+      _method: GET
+      
+AcmeStoreBundle_create:
+  pattern: /create
+  defaults: { _controller: AcmeStoreBundle:Store:create }
+  requirements:
+      _method: GET
+
+AcmeStoreBundle_create2:
+  pattern: /create2
+  defaults: { _controller: AcmeStoreBundle:Store:createProduct }
+  requirements:
+      _method: GET
+      
+AcmeStoreBundle_update:
+  pattern: /update/{id}
+  defaults: { _controller: AcmeStoreBundle:Store:update, id: 1}
+  
+AcmeStoreBundle_remove:
+  pattern: /remove/{id}
+  defaults: { _controller: AcmeStoreBundle:Store:remove}
+  
+AcmeStoreBundle_ejemploDQL:
+  pattern: /listadoDQL/{precio}
+  defaults: { _controller: AcmeStoreBundle:Store:listadoDQL}
+  
+AcmeStoreBundle_ejemploDQB:
+  pattern: /listadoDQB/{precio}
+  defaults: { _controller: AcmeStoreBundle:Store:listadoDQB}
+  
+AcmeStoreBundle_nombres:
+  pattern: /nombres
+  defaults: { _controller: AcmeStoreBundle:Store:mostrarNombres}

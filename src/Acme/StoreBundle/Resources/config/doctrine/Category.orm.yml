@@ -1,0 +1,23 @@
+# src/Acme/StoreBundle/Resources/config/doctrine/Category.orm.yml
+
+Acme\StoreBundle\Entity\Category:
+  type: entity
+  repositoryClass: Acme\StoreBundle\Repository\CategoryRepository
+  
+  table: category
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      length: '255'
+      
+  oneToMany:
+    products:
+      targetEntity: Product
+      mappedBy: category
+    # don't forget to init the collection in entity __construct() method
+  lifecycleCallbacks: {  }
